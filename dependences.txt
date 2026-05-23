@@ -1,0 +1,609 @@
+# Dependencias Iniciales — Bronzeado Booking System
+
+Este documento centraliza las dependencias principales del proyecto para mantener consistencia entre todos los desarrolladores.
+
+---
+
+# Objetivo
+
+Definir:
+
+* dependencias obligatorias
+* propósito de cada paquete
+* dónde se instala
+* prioridad de instalación
+* uso dentro de la arquitectura
+
+---
+
+# Arquitectura General
+
+Monorepo:
+
+* apps/api → Backend NestJS
+* apps/web → Frontend Next.js
+* apps/admin → Dashboard futuro
+* packages/* → código compartido
+
+---
+
+# DEPENDENCIAS ROOT (MONOREPO)
+
+Se instalan en la raíz del proyecto.
+
+## turbo
+
+Instalación:
+
+```bash
+pnpm add -D turbo
+```
+
+Propósito:
+
+* administrar monorepo
+* acelerar builds
+* compartir cache
+* ejecutar tareas simultáneas
+
+---
+
+## prettier
+
+Instalación:
+
+```bash
+pnpm add -D prettier
+```
+
+Propósito:
+
+* formatear código automáticamente
+* mantener estilo uniforme
+
+---
+
+# BACKEND — apps/api
+
+# Framework principal
+
+## @nestjs/core
+
+Instalado automáticamente.
+
+Propósito:
+
+* framework backend principal
+
+---
+
+## @nestjs/common
+
+Propósito:
+
+* utilidades base NestJS
+* decorators
+* inyección de dependencias
+
+---
+
+## @nestjs/config
+
+Instalación:
+
+```bash
+pnpm add @nestjs/config
+```
+
+Propósito:
+
+* manejo de variables de entorno
+* configuración centralizada
+
+Ejemplo:
+
+```env
+DATABASE_URL=
+JWT_SECRET=
+```
+
+---
+
+# Base de datos
+
+## prisma
+
+Instalación:
+
+```bash
+pnpm add -D prisma
+```
+
+Propósito:
+
+* ORM principal
+* migraciones
+* manejo de modelos
+
+---
+
+## @prisma/client
+
+Instalación:
+
+```bash
+pnpm add @prisma/client
+```
+
+Propósito:
+
+* cliente para consultar PostgreSQL
+
+---
+
+## pg
+
+Instalación:
+
+```bash
+pnpm add pg
+```
+
+Propósito:
+
+* driver PostgreSQL para Node.js
+
+---
+
+# Validaciones
+
+## class-validator
+
+Instalación:
+
+```bash
+pnpm add class-validator
+```
+
+Propósito:
+
+* validar DTOs
+* validar requests
+
+---
+
+## class-transformer
+
+Instalación:
+
+```bash
+pnpm add class-transformer
+```
+
+Propósito:
+
+* transformar datos automáticamente
+
+---
+
+# Documentación API
+
+## @nestjs/swagger
+
+Instalación:
+
+```bash
+pnpm add @nestjs/swagger swagger-ui-express
+```
+
+Propósito:
+
+* documentación automática de endpoints
+* testing visual de API
+
+---
+
+# Seguridad
+
+## bcrypt
+
+Instalación:
+
+```bash
+pnpm add bcrypt
+pnpm add -D @types/bcrypt
+```
+
+Propósito:
+
+* encriptar passwords
+
+---
+
+## jsonwebtoken
+
+Instalación:
+
+```bash
+pnpm add @nestjs/jwt passport-jwt
+```
+
+Propósito:
+
+* autenticación JWT
+
+---
+
+# WhatsApp
+
+## axios
+
+Instalación:
+
+```bash
+pnpm add axios
+```
+
+Propósito:
+
+* consumir APIs externas
+* WhatsApp Cloud API
+* Wompi API
+* Google APIs
+
+---
+
+# Google Calendar
+
+## googleapis
+
+Instalación:
+
+```bash
+pnpm add googleapis
+```
+
+Propósito:
+
+* integración Google Calendar API
+* creación automática de eventos
+
+---
+
+# Pagos
+
+## crypto
+
+Incluido en Node.js.
+
+Propósito:
+
+* validación de firmas Wompi
+* seguridad webhooks
+
+---
+
+# Variables de entorno
+
+## dotenv
+
+NestJS ya lo maneja mediante ConfigModule.
+
+---
+
+# Logging
+
+## winston
+
+Instalación:
+
+```bash
+pnpm add winston nest-winston
+```
+
+Propósito:
+
+* logs profesionales
+* monitoreo
+* debugging
+
+---
+
+# FRONTEND — apps/web
+
+# Framework principal
+
+## next
+
+Instalado automáticamente.
+
+Propósito:
+
+* frontend React SSR
+* landing page
+* reservas
+* SEO
+
+---
+
+## react
+
+UI principal.
+
+---
+
+## tailwindcss
+
+Instalado automáticamente.
+
+Propósito:
+
+* estilos rápidos
+* diseño moderno
+
+---
+
+# Formularios
+
+## react-hook-form
+
+Instalación:
+
+```bash
+pnpm add react-hook-form
+```
+
+Propósito:
+
+* manejo profesional de formularios
+
+---
+
+## zod
+
+Instalación:
+
+```bash
+pnpm add zod
+```
+
+Propósito:
+
+* validación frontend
+* schemas tipados
+
+---
+
+# HTTP Client
+
+## axios
+
+Instalación:
+
+```bash
+pnpm add axios
+```
+
+Propósito:
+
+* consumir backend API
+
+---
+
+# UI Components
+
+## lucide-react
+
+Instalación:
+
+```bash
+pnpm add lucide-react
+```
+
+Propósito:
+
+* iconos modernos
+
+---
+
+# Calidad de Código
+
+# ESLint
+
+Instalación:
+
+```bash
+pnpm add -D eslint
+```
+
+Propósito:
+
+* detectar errores
+* mantener buenas prácticas
+
+---
+
+# Prettier
+
+Instalación:
+
+```bash
+pnpm add -D prettier
+```
+
+Propósito:
+
+* formateo automático
+
+---
+
+# Git Hooks
+
+## husky
+
+Instalación:
+
+```bash
+pnpm add -D husky
+```
+
+Propósito:
+
+* ejecutar validaciones antes de commits
+
+---
+
+# Commit estándar
+
+## commitlint
+
+Instalación:
+
+```bash
+pnpm add -D @commitlint/cli @commitlint/config-conventional
+```
+
+Propósito:
+
+* estandarizar mensajes git
+
+Ejemplo:
+
+```bash
+git commit -m "feat: add booking module"
+```
+
+---
+
+# Testing
+
+## jest
+
+NestJS ya lo incluye.
+
+Propósito:
+
+* pruebas unitarias
+
+---
+
+# Docker
+
+## docker
+
+No es dependencia npm.
+
+Propósito:
+
+* contenerizar proyecto
+* despliegue consistente
+
+---
+
+# Orden recomendado de instalación
+
+# Fase 1
+
+* turbo
+* prettier
+* eslint
+
+---
+
+# Fase 2
+
+* NestJS
+* Prisma
+* PostgreSQL
+* ConfigModule
+
+---
+
+# Fase 3
+
+* Swagger
+* JWT
+* bcrypt
+
+---
+
+# Fase 4
+
+* Google Calendar
+* WhatsApp
+* Wompi
+
+---
+
+# Fase 5
+
+* Husky
+* Commitlint
+* Docker
+* Winston
+
+---
+
+# Dependencias CRÍTICAS del MVP
+
+Backend:
+
+* NestJS
+* Prisma
+* PostgreSQL
+* axios
+* googleapis
+* @nestjs/config
+
+Frontend:
+
+* Next.js
+* TailwindCSS
+* react-hook-form
+* zod
+
+Infraestructura:
+
+* Vercel
+* Railway
+* Supabase
+
+---
+
+# Recomendación importante
+
+No instalar todas las dependencias al mismo tiempo.
+
+La estrategia correcta es:
+
+1. instalar base del proyecto
+2. validar funcionamiento
+3. crear módulos
+4. agregar dependencias progresivamente
+
+Esto evita:
+
+* conflictos
+* errores difíciles de rastrear
+* dependencias innecesarias
+* versiones incompatibles
+
+---
+
+# Convención del proyecto
+
+Siempre:
+
+* usar pnpm
+* usar TypeScript
+* usar variables de entorno
+* evitar lógica duplicada
+* separar responsabilidades
+* documentar módulos importantes
+
+---
+
+# Autor
+
+Proyecto: Bronzeado Booking System
+Arquitectura: Monorepo Fullstack
