@@ -1,0 +1,71 @@
+# dependencies
+node_modules
+
+# logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# build
+dist
+build
+.next
+out
+
+# turborepo
+.turbo
+
+# prisma
+prisma/generated
+
+# coverage
+coverage
+
+# macOS
+.DS_Store
+
+# vscode
+.vscode
+
+# idea
+.idea
+
+# temporary
+tmp
+temp
+
+# uploads
+uploads
+
+# generated
+generated
+
+# lock files
+package-lock.json
+
+# railway
+.railway
+
+# vercel
+.vercel
+
+# docker
+docker-data
+
+# certificates
+*.pem
+*.key
+
+# google credentials
+credentials.json
+service-account.json
